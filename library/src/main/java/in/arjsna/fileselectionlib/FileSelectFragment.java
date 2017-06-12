@@ -76,7 +76,7 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
             filePaths.add(files.get(idx).filePath);
           }
           Intent intent = new Intent();
-          intent.putStringArrayListExtra(FileChooseHelperActivity.SELECTED_FILES, filePaths);
+          intent.putStringArrayListExtra(FileLibUtils.SELECTED_FILES, filePaths);
           getActivity().setResult(Activity.RESULT_OK, intent);
           getActivity().finish();
         }

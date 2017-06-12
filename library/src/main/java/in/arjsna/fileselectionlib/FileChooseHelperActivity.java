@@ -9,7 +9,6 @@ import java.io.File;
 
 public class FileChooseHelperActivity extends AppCompatActivity {
 
-  public static final String SELECTED_FILES = "selected_files";
   private File tempPhoto;
   private int mFileTypeToChoose;
 

@@ -38,6 +38,7 @@ public class FileLibUtils {
   };
 
   public final static String FILE_TYPE_TO_CHOOSE = "in.arj.fileselectionlib.FILE_TYPE_TO_CHOOSE";
+  public static final String SELECTED_FILES = "selected_files";
 
   public static ArrayList<Bucket> fetchLocalBuckets(Context context, int mFileTypeToChoose) {
     ArrayList<Bucket> buckets = new ArrayList<>();

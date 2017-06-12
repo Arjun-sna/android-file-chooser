@@ -10,33 +10,30 @@
 
   <Button
       android:id="@+id/filechoose_btn"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="Images"
-      app:layout_constraintBottom_toBottomOf="parent"
+      android:text="Choose Images"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintRight_toLeftOf="@+id/filechoose_btn_video"
       app:layout_constraintTop_toTopOf="parent"
       />
   <Button
       android:id="@+id/filechoose_btn_video"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="Videos"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
+      android:text="Choose Videos"
+      app:layout_constraintLeft_toRightOf="@+id/filechoose_btn"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/filechoose_btn"
+      app:layout_constraintTop_toTopOf="parent"
       />
-  <Button
-      android:id="@+id/filechoose_btn_audio"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Audios"
-      app:layout_constraintBottom_toBottomOf="parent"
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/selected_file_list"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/filechoose_btn_video"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/filechoose_btn"
       />
 
 </android.support.constraint.ConstraintLayout>
