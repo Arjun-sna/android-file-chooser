@@ -39,16 +39,6 @@ public class BucketListAdapter extends RecyclerView.Adapter<BucketListAdapter.Li
     Glide.with(holder.bucketCoverImageView.getContext())
         .load(new File(bucket.bucketCoverImageFilePath))
         .into(holder.bucketCoverImageView);
-    //        holder.itemView.setOnClickListener(new View.OnClickListener() {
-    //            @Override
-    //            public void onClick(View v) {
-    //                Intent viewFilesIntent = new Intent(context, FileSelectActivity.class);
-    //                viewFilesIntent.putExtra(FileSelectActivity.BUCKET_ID, bucket.bucketId);
-    //                viewFilesIntent.putExtra(FileSelectActivity.BUCKET_NAME, bucket.bucketName);
-    //                viewFilesIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, bucket.fileType);
-    //                context.startActivity(viewFilesIntent);
-    //            }
-    //        });
   }
 
   @Override public int getItemCount() {

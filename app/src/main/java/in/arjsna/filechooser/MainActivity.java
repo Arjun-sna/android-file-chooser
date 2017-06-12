@@ -21,5 +21,19 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(addPhotosIntent, STORAGE_REQUEST_CODE);
       }
     });
+    findViewById(R.id.filechoose_btn_video).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent addPhotosIntent = new Intent(MainActivity.this, FileChooseHelperActivity.class);
+        addPhotosIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_VIDEOS);
+        startActivityForResult(addPhotosIntent, STORAGE_REQUEST_CODE);
+      }
+    });
+    findViewById(R.id.filechoose_btn_audio).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent addPhotosIntent = new Intent(MainActivity.this, FileChooseHelperActivity.class);
+        addPhotosIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_AUDIO);
+        startActivityForResult(addPhotosIntent, STORAGE_REQUEST_CODE);
+      }
+    });
   }
 }

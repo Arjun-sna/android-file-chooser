@@ -12,11 +12,31 @@
       android:id="@+id/filechoose_btn"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Hello World!"
+      android:text="Images"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent"
+      />
+  <Button
+      android:id="@+id/filechoose_btn_video"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Videos"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/filechoose_btn"
+      />
+  <Button
+      android:id="@+id/filechoose_btn_audio"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Audios"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/filechoose_btn_video"
       />
 
 </android.support.constraint.ConstraintLayout>
