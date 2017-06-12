@@ -1,15 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
     package="in.arjsna.fileselectionlib"
->
+    >
+
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <application android:allowBackup="true"
-      xmlns:tools="http://schemas.android.com/tools"
+  <application
+      android:allowBackup="true"
       android:label="@string/app_name"
       android:supportsRtl="true"
       android:theme="@style/Theme.AppCompat.NoActionBar"
-  >
-    <activity android:name=".FileChooseHelperActivity" />
+      >
+    <activity android:name=".FileChooseHelperActivity"/>
   </application>
 
 </manifest>
