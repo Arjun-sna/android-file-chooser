@@ -150,7 +150,7 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
           }
 
           @Override public void onError(@NonNull Throwable e) {
-
+            Log.e("Error loading file ", e.getMessage());
           }
         });
   }

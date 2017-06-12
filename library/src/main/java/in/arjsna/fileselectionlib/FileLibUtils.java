@@ -48,7 +48,7 @@ public class FileLibUtils {
     Cursor cursor =
         context.getContentResolver().query(queryUri, projection, // Which columns to return
             null,       // Return all rows
-            null, MediaStore.Audio.AudioColumns.DATE_ADDED + " DESC");
+            null, MediaStore.MediaColumns.DATE_ADDED + " DESC");
     int columnIndexBucketId = cursor.getColumnIndexOrThrow(projection[0]);
     int columnIndexBucketName = cursor.getColumnIndexOrThrow(projection[1]);
     int columnIndexFilePath = cursor.getColumnIndexOrThrow(projection[2]);
@@ -102,7 +102,7 @@ public class FileLibUtils {
     Cursor cursor =
         context.getContentResolver().query(queryUri, projection, // Which columns to return
             projection[4] + " = '" + bucketId + "'",       // Return all rows
-            null, MediaStore.Images.ImageColumns.DATE_TAKEN + " DESC");
+            null, MediaStore.MediaColumns.DATE_ADDED + " DESC");
     int columnIndexFileId = cursor.getColumnIndexOrThrow(projection[0]);
     int columnIndexFileName = cursor.getColumnIndexOrThrow(projection[1]);
     int columnIndexFileSize = cursor.getColumnIndexOrThrow(projection[2]);
@@ -140,7 +140,7 @@ public class FileLibUtils {
         return new String[] {
             MediaStore.Audio.Media._ID, MediaStore.Audio.Media.DISPLAY_NAME,
             MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.DATA,
-            MediaStore.Audio.Media.ALBUM_ID, MediaStore.Audio.Albums.ALBUM_ART
+            MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.SIZE
         };
     }
   }
