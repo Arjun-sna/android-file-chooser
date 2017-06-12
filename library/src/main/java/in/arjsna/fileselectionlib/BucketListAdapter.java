@@ -55,6 +55,11 @@ public class BucketListAdapter extends RecyclerView.Adapter<BucketListAdapter.Li
     return buckets.size();
   }
 
+  public void addAllAndNotify(ArrayList<Bucket> buckets) {
+    this.buckets.addAll(buckets);
+    notifyDataSetChanged();
+  }
+
   public class ListItemViewHolder extends RecyclerView.ViewHolder {
     TextView bucketNameView;
     TextView bucketCountCountView;

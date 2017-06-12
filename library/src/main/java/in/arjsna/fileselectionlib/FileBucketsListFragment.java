@@ -12,8 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * Created by arjun on 6/4/16.
@@ -34,6 +42,7 @@ public class FileBucketsListFragment extends Fragment {
   private Animation scaleDownAnim;
   private Animation scaleUpAnim;
   private int mFileTypeToChoose;
+  private ProgressBar mProgressBar;
 
   public FileBucketsListFragment() {
     setRetainInstance(true);
@@ -134,10 +143,33 @@ public class FileBucketsListFragment extends Fragment {
   }
 
   private void fetchBuckets() {
-    buckets.addAll(FileLibUtils.fetchLocalBuckets(getActivity(), mFileTypeToChoose));
+    Single<ArrayList<Bucket>> bucketFetch = Single.fromCallable(new Callable<ArrayList<Bucket>>() {
+      @Override public ArrayList<Bucket> call() throws Exception {
+        return FileLibUtils.fetchLocalBuckets(getActivity(), mFileTypeToChoose);
+      }
+    });
+    bucketFetch.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new SingleObserver<ArrayList<Bucket>>() {
+          @Override public void onSubscribe(@NonNull Disposable d) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            mBucketListView.setVisibility(View.GONE);
+          }
+
+          @Override public void onSuccess(@NonNull ArrayList<Bucket> buckets) {
+            mBucketListAdapter.addAllAndNotify(buckets);
+            mProgressBar.setVisibility(View.GONE);
+            mBucketListView.setVisibility(View.VISIBLE);
+          }
+
+          @Override public void onError(@NonNull Throwable e) {
+
+          }
+        });
   }
 
   private void initialiseViews() {
+    mProgressBar = (ProgressBar) mRootView.findViewById(R.id.fetch_bucket_progress);
     mBucketListView = (RecyclerView) mRootView.findViewById(R.id.buckets_list);
     GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
     mBucketListView.setLayoutManager(gridLayoutManager);
