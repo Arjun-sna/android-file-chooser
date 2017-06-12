@@ -87,7 +87,7 @@ public class FileLibUtils {
       };
     } else {
       return new String[] {
-          MediaStore.Audio.Media.ALBUM_ID, MediaStore.Audio.Media.DISPLAY_NAME,
+          MediaStore.Audio.Media.ALBUM_ID, MediaStore.Audio.AudioColumns.ALBUM,
           MediaStore.Audio.Media.DATA
       };
     }
