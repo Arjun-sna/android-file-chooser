@@ -38,7 +38,7 @@ public class FilesListAdapter extends RecyclerView.Adapter<FilesListAdapter.List
   @Override public void onBindViewHolder(final ListItemViewHolder holder, final int position) {
     FileItem fileItem = fileItems.get(position);
     Glide.with(holder.fileImageView.getContext())
-        .load(new File(fileItem.filePath))
+        .load(new File(fileItem.fileThumbnailPath))
         .into(holder.fileImageView);
     if (selectedItemsArray.get(position, false)) {
       holder.activeStateLayout.setVisibility(View.VISIBLE);

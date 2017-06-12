@@ -107,12 +107,14 @@ public class FileLibUtils {
     int columnIndexFileName = cursor.getColumnIndexOrThrow(projection[1]);
     int columnIndexFileSize = cursor.getColumnIndexOrThrow(projection[2]);
     int columnIndexFilePath = cursor.getColumnIndexOrThrow(projection[3]);
+    int columnIndexFileThumbPath = cursor.getColumnIndexOrThrow(projection[5]);
     while (cursor.moveToNext()) {
-      FileItem fileItem = new FileItem();
+      FileItem fileItem = new FileItem(fileType);
       fileItem.fileId = cursor.getString(columnIndexFileId);
       fileItem.fileName = cursor.getString(columnIndexFileName);
       fileItem.filePath = cursor.getString(columnIndexFilePath);
       fileItem.fileSize = cursor.getString(columnIndexFileSize);
+      fileItem.fileThumbnailPath = cursor.getString(columnIndexFileThumbPath);
       fileItems.add(fileItem);
     }
     cursor.close();
@@ -126,19 +128,19 @@ public class FileLibUtils {
         return new String[] {
             MediaStore.Images.Media._ID, MediaStore.Images.Media.DISPLAY_NAME,
             MediaStore.Images.Media.SIZE, MediaStore.Images.Media.DATA,
-            MediaStore.Images.Media.BUCKET_ID
+            MediaStore.Images.Media.BUCKET_ID, MediaStore.Images.Thumbnails.DATA
         };
       case FILE_TYPE_VIDEOS:
         return new String[] {
             MediaStore.Video.Media._ID, MediaStore.Video.Media.DISPLAY_NAME,
             MediaStore.Video.Media.SIZE, MediaStore.Video.Media.DATA,
-            MediaStore.Video.Media.BUCKET_ID
+            MediaStore.Video.Media.BUCKET_ID, MediaStore.Video.Thumbnails.DATA
         };
       case FILE_TYPE_AUDIO:
         return new String[] {
             MediaStore.Audio.Media._ID, MediaStore.Audio.Media.DISPLAY_NAME,
             MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.DATA,
-            MediaStore.Audio.Media.ALBUM_ID
+            MediaStore.Audio.Media.ALBUM_ID, MediaStore.Audio.Albums.ALBUM_ART
         };
     }
   }
