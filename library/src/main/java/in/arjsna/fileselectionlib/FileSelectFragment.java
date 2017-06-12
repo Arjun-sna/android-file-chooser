@@ -24,9 +24,9 @@ import java.util.List;
  */
 public class FileSelectFragment extends Fragment
         implements GestureDetector.OnGestureListener{
-    public static final String BUCKET_NAME = "in.arj.hide.BUCKET_NAME";
-    public static final String BUCKET_ID = "in.arj.hide.BUCKET_ID";
-    public static final String BUCKET_CONTENT_COUNT = "in.arj.hide.BUCKET_CONTENT_COUNT";
+    public static final String BUCKET_NAME = "in.arjsna.fileselectionlib.BUCKET_NAME";
+    public static final String BUCKET_ID = "in.arjsna.fileselectionlib.BUCKET_ID";
+    public static final String BUCKET_CONTENT_COUNT = "in.arjsna.fileselectionlib.BUCKET_CONTENT_COUNT";
     private static final float SCROLL_THRESHOLD =10;
     private String bucketName;
     private String bucketId;

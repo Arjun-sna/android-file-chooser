@@ -33,15 +33,12 @@ public class FileLibUtils {
 //            put(FILE_TYPE_ALL, "All files");
             put(FILE_TYPE_IMAGES, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             put(FILE_TYPE_VIDEOS, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+            put(FILE_TYPE_AUDIO, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
         }
     };
 
-    public final static String FILE_TYPE_TO_CHOOSE = "in.arj.secure.FILE_TYPE_TO_CHOOSE";
-//    public static File sourceDir;
+    public final static String FILE_TYPE_TO_CHOOSE = "in.arj.fileselectionlib.FILE_TYPE_TO_CHOOSE";
 
-//    public static void init(Context applicationContext){
-//        sourceDir = applicationContext.getDir("case", Context.MODE_PRIVATE);
-//    }
 
     public static ArrayList<Bucket> fetchLocalBuckets(Context context, int mFileTypeToChoose) {
         ArrayList<Bucket> buckets = new ArrayList<>();
