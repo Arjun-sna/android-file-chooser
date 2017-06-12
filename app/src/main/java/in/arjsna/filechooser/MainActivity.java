@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     findViewById(R.id.filechoose_btn).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         Intent addPhotosIntent = new Intent(MainActivity.this, FileChooseHelperActivity.class);
-        addPhotosIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_AUDIO);
+        addPhotosIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_IMAGES);
         startActivityForResult(addPhotosIntent, STORAGE_REQUEST_CODE);
       }
     });

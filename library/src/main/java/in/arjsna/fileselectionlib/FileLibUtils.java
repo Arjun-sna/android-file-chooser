@@ -50,7 +50,7 @@ public class FileLibUtils {
                 projection, // Which columns to return
                 null,       // Return all rows
                 null,
-                MediaStore.Images.ImageColumns.DATE_TAKEN + " DESC");
+                MediaStore.Audio.AudioColumns.DATE_ADDED + " DESC");
         int columnIndexBucketId = cursor.getColumnIndexOrThrow(projection[0]);
         int columnIndexBucketName = cursor.getColumnIndexOrThrow(projection[1]);
         int columnIndexFilePath = cursor.getColumnIndexOrThrow(projection[2]);
@@ -83,12 +83,18 @@ public class FileLibUtils {
                     MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
                     MediaStore.Images.Media.DATA
             };
-        } else {
+        } else if(fileType == FILE_TYPE_VIDEOS){
             return new String[]{
                     MediaStore.Video.Media.BUCKET_ID,
                     MediaStore.Video.Media.BUCKET_DISPLAY_NAME,
-                    MediaStore.Images.Media.DATA
+                    MediaStore.Video.Media.DATA
             };
+        } else {
+          return new String[]{
+              MediaStore.Audio.Media.ALBUM_ID,
+              MediaStore.Audio.Media.DISPLAY_NAME,
+              MediaStore.Audio.Media.DATA
+          };
         }
     }
 
@@ -119,23 +125,33 @@ public class FileLibUtils {
     }
 
     private static String[] getFileProjection(int fileType) {
-        if(fileType == FILE_TYPE_IMAGES) {
-            return new String[]{
-                    MediaStore.Images.Media._ID,
-                    MediaStore.Images.Media.DISPLAY_NAME,
-                    MediaStore.Images.Media.SIZE,
-                    MediaStore.Images.Media.DATA,
-                    MediaStore.Images.Media.BUCKET_ID
-            };
-        } else {
-            return new String[]{
-                    MediaStore.Video.Media._ID,
-                    MediaStore.Video.Media.DISPLAY_NAME,
-                    MediaStore.Video.Media.SIZE,
-                    MediaStore.Video.Media.DATA,
-                    MediaStore.Video.Media.BUCKET_ID
-            };
-        }
+      switch (fileType) {
+        default:
+        case FILE_TYPE_IMAGES:
+          return new String[]{
+              MediaStore.Images.Media._ID,
+              MediaStore.Images.Media.DISPLAY_NAME,
+              MediaStore.Images.Media.SIZE,
+              MediaStore.Images.Media.DATA,
+              MediaStore.Images.Media.BUCKET_ID
+          };
+        case FILE_TYPE_VIDEOS:
+          return new String[]{
+              MediaStore.Video.Media._ID,
+              MediaStore.Video.Media.DISPLAY_NAME,
+              MediaStore.Video.Media.SIZE,
+              MediaStore.Video.Media.DATA,
+              MediaStore.Video.Media.BUCKET_ID
+          };
+        case FILE_TYPE_AUDIO:
+          return new String[]{
+              MediaStore.Audio.Media._ID,
+              MediaStore.Audio.Media.DISPLAY_NAME,
+              MediaStore.Audio.Media.SIZE,
+              MediaStore.Audio.Media.DATA,
+              MediaStore.Audio.Media.ALBUM_ID
+          };
+      }
     }
 }
 
