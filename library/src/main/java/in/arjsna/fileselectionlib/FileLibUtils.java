@@ -12,19 +12,19 @@ import java.util.Map;
  * Created by arjun on 6/1/16.
  */
 public class FileLibUtils {
-  public final static int FILE_TYPE_ALL = 500;
+  //public final static int FILE_TYPE_ALL = 500;
   public final static int FILE_TYPE_IMAGES = 501;
   public final static int FILE_TYPE_VIDEOS = 502;
-  public final static int FILE_TYPE_AUDIO = 503;
-  public final static int TAKE_PICTURE = 504;
-  public final static int TAKE_VIDEO = 505;
+  //public final static int FILE_TYPE_AUDIO = 503;
+  //public final static int TAKE_PICTURE = 504;
+  //public final static int TAKE_VIDEO = 505;
 
   public final static Map<Integer, String> titleMap = new HashMap<Integer, String>() {
     {
-      put(FILE_TYPE_ALL, "All files");
+      //put(FILE_TYPE_ALL, "All files");
       put(FILE_TYPE_IMAGES, "All Images");
       put(FILE_TYPE_VIDEOS, "All Videos");
-      put(FILE_TYPE_AUDIO, "All Audios");
+      //put(FILE_TYPE_AUDIO, "All Audios");
     }
   };
 
@@ -33,7 +33,7 @@ public class FileLibUtils {
       //            put(FILE_TYPE_ALL, "All files");
       put(FILE_TYPE_IMAGES, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
       put(FILE_TYPE_VIDEOS, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-      put(FILE_TYPE_AUDIO, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+      //put(FILE_TYPE_AUDIO, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
     }
   };
 
@@ -137,12 +137,12 @@ public class FileLibUtils {
             MediaStore.Video.Media.SIZE, MediaStore.Video.Media.DATA,
             MediaStore.Video.Media.BUCKET_ID, MediaStore.Video.Thumbnails.DATA
         };
-      case FILE_TYPE_AUDIO:
-        return new String[] {
-            MediaStore.Audio.Media._ID, MediaStore.Audio.Media.DISPLAY_NAME,
-            MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.DATA,
-            MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.SIZE
-        };
+      //case FILE_TYPE_AUDIO:
+      //  return new String[] {
+      //      MediaStore.Audio.Media._ID, MediaStore.Audio.Media.DISPLAY_NAME,
+      //      MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.DATA,
+      //      MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.SIZE
+      //  };
     }
   }
 }

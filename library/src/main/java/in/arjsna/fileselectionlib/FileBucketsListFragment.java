@@ -53,7 +53,7 @@ public class FileBucketsListFragment extends Fragment {
       Bundle savedInstanceState) {
     mRootView = inflater.inflate(R.layout.fragment_file_buckets, container, false);
     mFileTypeToChoose =
-        getArguments().getInt(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_ALL);
+        getArguments().getInt(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_IMAGES);
     setUpActionBar();
     initialiseViews();
     bindEvents();

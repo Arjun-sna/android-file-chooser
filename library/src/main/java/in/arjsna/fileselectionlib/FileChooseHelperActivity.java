@@ -16,7 +16,7 @@ public class FileChooseHelperActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_files_choose_helper);
     mFileTypeToChoose =
-        getIntent().getIntExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_ALL);
+        getIntent().getIntExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_IMAGES);
     setUpActionBar();
     if (savedInstanceState == null) {
       FileBucketsListFragment bucketsListFragment = new FileBucketsListFragment();
