@@ -15,9 +15,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 /**
  * Created by arjun on 16/2/16.
@@ -41,6 +49,7 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
   private TextView titleView;
   private TextView mAdddFilesButton;
   private View mRootView;
+  private ProgressBar mProgressBar;
 
   @Nullable @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
@@ -117,14 +126,37 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
   }
 
   private void fetchFiles() {
-    files.clear();
-    files.addAll(FileLibUtils.getFilesInBucket(getActivity(), bucketId, fileType));
-    titleView.setText(
-        getResources().getString(R.string.selected_item_count, bucketName, 0, files.size()));
-    mFilesListAdapter.notifyDataSetChanged();
+    Single<Boolean> fileItems = Single.fromCallable(new Callable<Boolean>() {
+      @Override public Boolean call() throws Exception {
+        files.clear();
+        files.addAll(FileLibUtils.getFilesInBucket(getActivity(), bucketId, fileType));
+        return true;
+      }
+    });
+    fileItems.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new SingleObserver<Boolean>() {
+          @Override public void onSubscribe(@NonNull Disposable d) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            mFilesListView.setVisibility(View.GONE);
+          }
+
+          @Override public void onSuccess(@NonNull Boolean aBoolean) {
+            titleView.setText(
+                getResources().getString(R.string.selected_item_count, bucketName, 0, files.size()));
+            mFilesListAdapter.notifyDataSetChanged();
+            mProgressBar.setVisibility(View.GONE);
+            mFilesListView.setVisibility(View.VISIBLE);
+          }
+
+          @Override public void onError(@NonNull Throwable e) {
+
+          }
+        });
   }
 
   private void initialiseViews() {
+    mProgressBar = (ProgressBar) mRootView.findViewById(R.id.file_load_pb);
     mAdddFilesButton = (TextView) mRootView.findViewById(R.id.add_file_button);
     mFilesListView = (RecyclerView) mRootView.findViewById(R.id.files_list);
     GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
@@ -152,7 +184,6 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
     Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.file_chooser_toolbar);
     toolbar.setTitle("");
     titleView = (TextView) toolbar.findViewById(R.id.file_chooser_toolBarTitle);
-    //        setSupportActionBar(toolbar);
   }
 
   @Override public boolean onDown(MotionEvent e) {
