@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/files_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/add_file_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dp"
+        android:layout_margin="5.0dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16.0sp"
+        android:background="@drawable/button_bg_green"
+        android:text="@string/add_files"/>
+</RelativeLayout>

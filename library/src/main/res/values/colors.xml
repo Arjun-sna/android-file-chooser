@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="white">#FFFFFF</color>
+  <color name="black_shade_1">#333333</color>
+  <color name="grey1">#AAAAAA</color>
+  <color name="grey2">#EAEAEA</color>
+  <color name="grey3">#D1D4D9</color>
+  <color name="green">#25a930</color>
+
+  <color name="opacity40">#66000000</color>
+  <color name="opacity20">#33000000</color>
+  <color name="black_shade_2">#707070</color>
+  <color name="grey4">#EEEEEE</color>
+  <color name="grey5">#E4E4E4</color>
+
+</resources>
