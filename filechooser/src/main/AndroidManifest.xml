@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="in.arjsna.fileselectionlib"
+    package="in.arjsna.filechooser"
     >
 
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -10,7 +10,7 @@
       android:supportsRtl="true"
       android:theme="@style/Theme.AppCompat.NoActionBar"
       >
-    <activity android:name=".FileChooseHelperActivity"/>
+    <activity android:name="in.arjsna.filechooser.FileChooseHelperActivity"/>
   </application>
 
 </manifest>

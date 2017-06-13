@@ -22,7 +22,7 @@ android {
 
 ext {
   bintrayRepo = 'maven'
-  bintrayName = 'android_file_chooser'
+  bintrayName = 'android-file-chooser'
 
   publishedGroupId = 'in.arjsna'
   libraryName = 'filechooser'

@@ -1,4 +1,4 @@
-package in.arjsna.fileselectionlib;
+package in.arjsna.filechooser;
 
 /**
  * Created by arjun on 16/2/16.

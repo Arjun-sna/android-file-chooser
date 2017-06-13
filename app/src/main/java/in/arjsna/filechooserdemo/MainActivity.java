@@ -1,4 +1,4 @@
-package in.arjsna.filechooser;
+package in.arjsna.filechooserdemo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import in.arjsna.fileselectionlib.FileChooseHelperActivity;
-import in.arjsna.fileselectionlib.FileLibUtils;
+import in.arjsna.filechooser.FileChooseHelperActivity;
+import in.arjsna.filechooser.FileLibUtils;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

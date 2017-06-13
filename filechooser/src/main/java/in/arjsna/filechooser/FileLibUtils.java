@@ -1,4 +1,4 @@
-package in.arjsna.fileselectionlib;
+package in.arjsna.filechooser;
 
 import android.content.Context;
 import android.database.Cursor;

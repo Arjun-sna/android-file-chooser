@@ -1,4 +1,4 @@
-package in.arjsna.fileselectionlib;
+package in.arjsna.filechooser;
 
 import android.app.Activity;
 import android.content.Intent;
