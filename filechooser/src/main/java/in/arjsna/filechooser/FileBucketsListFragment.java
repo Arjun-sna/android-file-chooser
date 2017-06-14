@@ -1,8 +1,11 @@
 package in.arjsna.filechooser;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +31,7 @@ import java.util.concurrent.Callable;
  * Created by arjun on 6/4/16.
  */
 public class FileBucketsListFragment extends Fragment {
+  private static final int STORAGE_PERM_REQ = 200;
   private View mRootView;
   private RecyclerView mBucketListView;
   private BucketListAdapter mBucketListAdapter;
@@ -57,10 +61,32 @@ public class FileBucketsListFragment extends Fragment {
     setUpActionBar();
     initialiseViews();
     bindEvents();
-    if (buckets.size() < 1) {
+    if (buckets.size() < 1 && getPermissions()) {
       fetchBuckets();
     }
     return mRootView;
+  }
+
+  private boolean getPermissions() {
+    if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.RECEIVE_SMS)
+        != PackageManager.PERMISSION_GRANTED) {
+      requestPermissions(new String[] { Manifest.permission.READ_EXTERNAL_STORAGE }, STORAGE_PERM_REQ);
+      return false;
+    }
+    return true;
+  }
+
+  @Override public void onRequestPermissionsResult(int requestCode, @android.support.annotation.NonNull
+      String[] permissions,
+      @android.support.annotation.NonNull int[] grantResults) {
+    if (requestCode != STORAGE_PERM_REQ) {
+      return;
+    }
+    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+      fetchBuckets();
+    } else {
+      getActivity().finish();
+    }
   }
 
   private void setUpActionBar() {
