@@ -8,16 +8,8 @@ Android library to provide chooser for files in External storage
 <img src="https://arjun-sna.github.io/raw/filechooser_demo_1.jpg" width="200" />  <img src="https://arjun-sna.github.io/raw/filechooser_demo_2.jpg" width="200" />  <img src="https://arjun-sna.github.io/raw/filechooser_demo_3.jpg" width="200" />  <img src="https://arjun-sna.github.io/raw/filechooser_demo_4.jpg" width="200" />
 
 ## Installation
-Add gradle dependency
-```
-repositories {
-    jcenter()
-}
-dependencies {
-    compile 'in.arjsna:filechooser:1.0.0'
-}
-
-```
+* Clone the repository and copy the `filechooser` module to your project
+* Modify the layout files under layout folder according to your UI requirement
 
 ## Usage
 

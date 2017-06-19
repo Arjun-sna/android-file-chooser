@@ -21,31 +21,6 @@ android {
 }
 
 ext {
-  bintrayRepo = 'maven'
-  bintrayName = 'android-file-chooser'
-
-  publishedGroupId = 'in.arjsna'
-  libraryName = 'filechooser'
-  artifact = 'filechooser'
-
-  libraryDescription =
-      'Android library to fetch and display all image and video file for choosing'
-
-  siteUrl = 'https://github.com/Arjun-sna/android-file-chooser'
-  gitUrl = 'https://github.com/Arjun-sna/android-file-chooser.git'
-
-  libraryVersion = '1.0.1'
-
-  developerId = 'Arjun-Sna'
-  developerName = 'Arjun'
-  developerEmail = 'arj.sna@gmail.com'
-
-  licenseName = 'The Apache Software License, Version 2.0'
-  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-  allLicenses = ["Apache-2.0"]
-}
-
-ext {
   supportLibraryVerion = "25.3.1"
   rxAndroidVersion = "2.0.1"
   rxJavaVersion = "2.1.0"
@@ -67,6 +42,3 @@ dependencies {
   compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
   testCompile 'junit:junit:4.12'
 }
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
