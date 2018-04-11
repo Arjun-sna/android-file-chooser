@@ -36,6 +36,22 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(addPhotosIntent, STORAGE_REQUEST_CODE);
       }
     });
+    findViewById(R.id.single_image_filechoose_btn).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent singleImageIntent = new Intent(MainActivity.this, FileChooseHelperActivity.class);
+        singleImageIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_VIDEOS);
+        singleImageIntent.putExtra(FileLibUtils.FILE_SELECTION_MODE, FileLibUtils.SINGLE_SELECTION_MODE);
+        startActivityForResult(singleImageIntent, STORAGE_REQUEST_CODE);
+      }
+    });
+    findViewById(R.id.single_video_filechoose_btn).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent singleVideoIntent = new Intent(MainActivity.this, FileChooseHelperActivity.class);
+        singleVideoIntent.putExtra(FileLibUtils.FILE_SELECTION_MODE, FileLibUtils.SINGLE_SELECTION_MODE);
+        singleVideoIntent.putExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_VIDEOS);
+        startActivityForResult(singleVideoIntent, STORAGE_REQUEST_CODE);
+      }
+    });
     //findViewById(R.id.filechoose_btn_audio).setOnClickListener(new View.OnClickListener() {
     //  @Override public void onClick(View v) {
     //    Intent addPhotosIntent = new Intent(MainActivity.this, FileChooseHelperActivity.class);

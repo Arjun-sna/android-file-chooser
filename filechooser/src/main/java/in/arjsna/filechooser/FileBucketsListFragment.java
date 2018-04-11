@@ -47,6 +47,7 @@ public class FileBucketsListFragment extends Fragment {
   private Animation scaleDownAnim;
   private Animation scaleUpAnim;
   private int mFileTypeToChoose;
+  private int mSelectionMode;
   private ProgressBar mProgressBar;
 
   public FileBucketsListFragment() {
@@ -58,6 +59,8 @@ public class FileBucketsListFragment extends Fragment {
     mRootView = inflater.inflate(R.layout.fragment_file_buckets, container, false);
     mFileTypeToChoose =
         getArguments().getInt(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_IMAGES);
+    mSelectionMode =
+        getArguments().getInt(FileLibUtils.FILE_SELECTION_MODE, FileLibUtils.MULTI_SELECTION_MODE);
     setUpActionBar();
     initialiseViews();
     bindEvents();
@@ -129,6 +132,7 @@ public class FileBucketsListFragment extends Fragment {
                     bundle.putString(FileSelectFragment.BUCKET_NAME, bucket.bucketName);
                     bundle.putInt(FileSelectFragment.BUCKET_CONTENT_COUNT,
                         bucket.bucketContentCount);
+                    bundle.putInt(FileLibUtils.FILE_SELECTION_MODE, mSelectionMode);
                     bundle.putInt(FileLibUtils.FILE_TYPE_TO_CHOOSE, bucket.fileType);
                     FileSelectFragment fileSelectFragment = new FileSelectFragment();
                     fileSelectFragment.setArguments(bundle);

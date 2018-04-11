@@ -19,6 +19,10 @@ public class FileLibUtils {
   //public final static int TAKE_PICTURE = 504;
   //public final static int TAKE_VIDEO = 505;
 
+  //selection mode
+  public final static int SINGLE_SELECTION_MODE = 506;
+  public final static int MULTI_SELECTION_MODE = 507;
+
   public final static Map<Integer, String> titleMap = new HashMap<Integer, String>() {
     {
       //put(FILE_TYPE_ALL, "All files");
@@ -39,6 +43,7 @@ public class FileLibUtils {
 
   public final static String FILE_TYPE_TO_CHOOSE = "in.arj.fileselectionlib.FILE_TYPE_TO_CHOOSE";
   public static final String SELECTED_FILES = "selected_files";
+  public static final String FILE_SELECTION_MODE = "file_selection_mode";
 
   public static ArrayList<Bucket> fetchLocalBuckets(Context context, int mFileTypeToChoose) {
     ArrayList<Bucket> buckets = new ArrayList<>();

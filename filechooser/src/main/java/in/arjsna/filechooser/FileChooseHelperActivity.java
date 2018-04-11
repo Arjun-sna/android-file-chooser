@@ -11,6 +11,7 @@ public class FileChooseHelperActivity extends AppCompatActivity {
 
   private File tempPhoto;
   private int mFileTypeToChoose;
+  private int mSelectionMode;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -18,10 +19,13 @@ public class FileChooseHelperActivity extends AppCompatActivity {
     mFileTypeToChoose =
         getIntent().getIntExtra(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_IMAGES);
     setUpActionBar();
+    mSelectionMode =
+        getIntent().getIntExtra(FileLibUtils.FILE_SELECTION_MODE, FileLibUtils.MULTI_SELECTION_MODE);
     if (savedInstanceState == null) {
       FileBucketsListFragment bucketsListFragment = new FileBucketsListFragment();
       Bundle bundle = new Bundle();
       bundle.putInt(FileLibUtils.FILE_TYPE_TO_CHOOSE, mFileTypeToChoose);
+      bundle.putInt(FileLibUtils.FILE_SELECTION_MODE, mSelectionMode);
       bucketsListFragment.setArguments(bundle);
       getSupportFragmentManager().beginTransaction()
           .add(R.id.files_selection_container, bucketsListFragment)

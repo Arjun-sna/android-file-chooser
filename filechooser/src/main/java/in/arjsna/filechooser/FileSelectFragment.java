@@ -42,6 +42,7 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
   private ArrayList<FileItem> files = new ArrayList<>();
   private FilesListAdapter mFilesListAdapter;
   private int fileType;
+  private int selectionMode;
   private float mDownX;
   private float mDownY;
   private boolean isOnClick;
@@ -56,6 +57,7 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
     mRootView = inflater.inflate(R.layout.fragment_file_select, container, false);
     bucketName = getArguments().getString(BUCKET_NAME);
     bucketId = getArguments().getString(BUCKET_ID);
+    selectionMode = getArguments().getInt(FileLibUtils.FILE_SELECTION_MODE, FileLibUtils.MULTI_SELECTION_MODE);
     bucketContentCount = getArguments().getInt(BUCKET_CONTENT_COUNT, 0);
     fileType =
         getArguments().getInt(FileLibUtils.FILE_TYPE_TO_CHOOSE, FileLibUtils.FILE_TYPE_IMAGES);
@@ -168,6 +170,10 @@ public class FileSelectFragment extends Fragment implements GestureDetector.OnGe
   public FilesListAdapter.SelectedItemChangeListener selectedItemChangeListener =
       new FilesListAdapter.SelectedItemChangeListener() {
         @Override public void onSelectedItemsCountChanged() {
+          if (selectionMode == FileLibUtils.SINGLE_SELECTION_MODE) {
+            mAdddFilesButton.performClick();
+            return;
+          }
           int selectedItemCount = mFilesListAdapter.getSelectedItemCount();
           titleView.setText(
               getResources().getString(R.string.selected_item_count, bucketName, selectedItemCount,
