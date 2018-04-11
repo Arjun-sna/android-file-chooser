@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="5.0dp"
+    android:layout_marginLeft="5.0dp"
+    android:layout_marginStart="5.0dp"
+    android:layout_marginRight="5.0dp"
+    android:layout_marginEnd="5.0dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="horizontal"
+      >
+    <ImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/bucket_cover_iv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="150.0dp"
+        />
+    <LinearLayout
+        android:background="@color/black_shade_1"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+      <TextView
+          android:id="@+id/bucket_name_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:padding="2.0dp"
+          android:gravity="center"
+          android:maxLines="2"
+          android:text="@string/app_name"
+          android:textColor="@color/white"
+          android:textSize="16.0sp"
+          />
+      <TextView
+          android:layout_below="@+id/bucket_name_view"
+          android:id="@+id/bucket_content_count_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:padding="2.0dp"
+          android:text="@string/app_name"
+          android:textColor="@color/white"
+          android:textSize="14.0sp"
+          />
+    </LinearLayout>
+  </LinearLayout>
+</android.support.v7.widget.CardView>

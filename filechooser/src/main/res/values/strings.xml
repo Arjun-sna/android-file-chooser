@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">library</string>
+  <string name="add_files">Add Files</string>
+  <string name="selected_item_count">%1$s (%2$d / %3$d)</string>
+</resources>

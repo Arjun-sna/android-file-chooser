@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.arjsna.filechooserdemo.MainActivity"
+    >
+
+  <Button
+      android:id="@+id/filechoose_btn"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Choose Images"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toLeftOf="@+id/filechoose_btn_video"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+  <Button
+      android:id="@+id/filechoose_btn_video"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Choose Videos"
+      app:layout_constraintLeft_toRightOf="@+id/filechoose_btn"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+  <Button
+      android:id="@+id/single_image_filechoose_btn"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="48dp"
+      android:text="Choose Single Image"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/single_video_filechoose_btn"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="48dp"
+      android:text="Choose Single Video"
+      app:layout_constraintLeft_toRightOf="@+id/single_image_filechoose_btn"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/selected_file_list"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/single_image_filechoose_btn"
+      />
+
+</android.support.constraint.ConstraintLayout>
